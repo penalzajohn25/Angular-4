@@ -1,0 +1,36 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="fondo">
+    <p><b>ING. {{title}}</b></p>
+    <div class="contenido">
+
+        <p> Email de contacto: {{email}}</p>
+        <p>
+            <a href="{{sitio}}"> Buscanos en nuestro sitio web</a>
+        </p>
+
+        <button (click)="toggleDeportes()" class="btn">{{showDeport ? 'menos info' : 'mas info'}}</button>
+
+        <div *ngIf="showDeport" class="lista">
+            <h3>Deportes favoritos</h3>
+            <ul *ngFor="let deporte of deportes">
+                <li>{{deporte}}</li>
+            </ul>
+            <form (submit)="newDeport(deport)">
+
+                <input #deport type="text" name="deportes" placeholder="deporte">
+            </form>
+        </div>
+
+
+    </div>
+
+</div>
+<br><br>
+<div class="contenido">
+    <h3>Modifica el titulo</h3>
+    <label for="name">Titulo</label>
+    <input type="text" name="title" placeholder="cambiar titulo" [(ngModel)]="title">
+    <h3>Modifica el email</h3>
+    <label for="name">Email</label>
+    <input type="text" name="email" placeholder="cambiar email" [(ngModel)]="email">
+</div>
